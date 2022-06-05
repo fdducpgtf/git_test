@@ -42,5 +42,9 @@ git push test_origin master (如果远程代码仓库是空的，可以：git pu
 7、把本地master分支的最新修改强行推送至之前添加的GitHub远程代码仓库：
 git push -f test_origin master
 
-8、把远程代码仓库
+8、把远程代码仓库分支与当前分支合并：
+git pull test_origin master
+
+9、用远程代码仓库强行覆盖本地文件：
+git reset --hard test_origin master
 
