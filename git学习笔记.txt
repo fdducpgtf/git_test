@@ -88,6 +88,9 @@ git reset --hard <版本号>
 16、删除文件：
 git rm git学习笔记.txt
 
+只要保存过一次，文件永远才能找回来，最多丢失
+最新的修改而已。
+
 17、恢复文件：
 git checkout -- git学习笔记.txt
 错误的话，只能用：
