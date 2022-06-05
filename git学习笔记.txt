@@ -46,5 +46,5 @@ git push -f test_origin master
 git pull test_origin master
 
 9、用远程代码仓库强行覆盖本地文件：
-git reset --hard test_origin master
+git reset --hard test_origin/master
 
