@@ -79,3 +79,17 @@ git reset HEAD git学习笔记.txt
 git reset --hard HEAD
 HEAD 代表最新的一次修改提交。
 会替换本地文件。
+
+15、从任意版本回退：
+git reset --hard <版本号>
+版本号根据 git log或git reflog来得到。
+包括从远程代码仓库回退。
+
+16、删除文件：
+git rm git学习笔记.txt
+
+17、恢复文件：
+git checkout -- git学习笔记.txt
+错误的话，只能用：
+git reset HEAD git学习笔记.txt
+小心：会丢失最近对文件的修改部分。
