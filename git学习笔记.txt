@@ -96,3 +96,5 @@ git checkout -- git学习笔记.txt
 错误的话，只能用：
 git reset HEAD git学习笔记.txt
 小心：会丢失最近对文件的修改部分。
+
+增加
