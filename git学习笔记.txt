@@ -48,3 +48,34 @@ git pull test_origin master
 9、用远程代码仓库强行覆盖本地文件：
 git reset --hard test_origin/master
 
+10、回退到某个本地版本：
+git reset --hard <某个版本号>
+
+11、显示提交记录：
+git log
+git reflog
+git log是显示当前的HEAD和它的祖先的，递归是沿着当前指针的父亲，父亲的父亲，……，这样的原则。
+git reflog根本不遍历HEAD的祖先。它是HEAD所指向的一个顺序的提交列表：它的undo历史。
+reflog并不是repo（仓库）的一部分，它单独存储，而且不包含在pushes，fetches或者clones里面，它纯属是本地的。
+reflog可以很好地帮助你恢复你误操作的数据，例如你错误地reset了一个旧的提交，或者rebase，……，这个时候你
+可以使用reflog去查看在误操作之前的信息，并且使用git reset --hard 去恢复之前的状态。
+
+12、丢弃工作区的修改（取代本地文件）：
+git checkout -- git学习笔记.txt
+
+一种是 git学习笔记.txt 自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；
+
+一种是 git学习笔记.txt 已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。
+
+总之，就是让这个文件回到最近一次git commit或git add时的状态。
+
+13、用最新的版本撤销暂存区的修改：
+git reset HEAD git学习笔记.txt
+
+相当于用上一次的提交撤销了暂存区的修改，
+不会修改本地文件。
+
+14、从最新的版本回退：
+git reset --hard HEAD
+HEAD 代表最新的一次修改提交。
+会替换本地文件。
