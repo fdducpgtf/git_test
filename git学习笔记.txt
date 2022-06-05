@@ -98,3 +98,4 @@ git checkout -- git学习笔记.txt
 git reset HEAD git学习笔记.txt
 小心：会丢失最近对文件的修改部分。
 
+测试
