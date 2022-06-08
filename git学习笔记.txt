@@ -119,3 +119,4 @@ git checkout master 先切换到其它分支
 git merge new_branch 再合并其它分支
 
 
+master
