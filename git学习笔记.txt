@@ -135,3 +135,5 @@ git stash list(显示当前有多少stash
 
 25、应用某个理性：
 git cherry-pick <?>
+
+临时添加的work over
