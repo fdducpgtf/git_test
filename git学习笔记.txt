@@ -105,7 +105,7 @@ git branch new_branch  添加分支不切换到新分支
 git checkout -b new_branch 
 git switch -c new_branch
 
-19、删除分支：
+19、删除分支（error)：
 git branch -d new_branch
 
 
