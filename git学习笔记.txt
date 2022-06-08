@@ -98,4 +98,24 @@ git checkout -- git学习笔记.txt
 git reset HEAD git学习笔记.txt
 小心：会丢失最近对文件的修改部分。
 
-添加一个分支
+18、添加分支：
+git branch new_branch  添加分支不切换到新分支
+
+添加分支并自动切换到新分支
+git checkout -b new_branch 
+git switch -c new_branch
+
+19、删除分支：
+git branch -d new_branch
+
+
+20、切换到某分支：
+git checkout new_branch
+git switch  new_branch
+
+
+21、合并分支：
+git checkout master 先切换到其它分支
+git merge new_branch 再合并其它分支
+
+
