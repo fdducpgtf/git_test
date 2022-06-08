@@ -119,6 +119,6 @@ git checkout master 先切换到其它分支
 git merge new_branch 再合并其它分支
 
 
-master
-my branch
-my branch+2.0
+22、合并冲突：
+合并冲突后，需要手动在文件里面解决冲突后完成合并。
+
