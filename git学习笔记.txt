@@ -1,4 +1,4 @@
-git学习笔记：
+fdd的git学习笔记：
 1、创建SSH KEY：
 ssh-keygen -t rsa -C "youremail@example.com"
 youremail@example.com表示注册的邮箱。
