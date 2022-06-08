@@ -118,10 +118,20 @@ git switch  new_branch
 git checkout master 先切换到其它分支
 git merge new_branch 再合并其它分支
 
+git merge --no-off -m "非快速合并" new_branch 非快速合并合并
+
 
 22、合并冲突：
 合并冲突后，需要手动在文件里面解决冲突后完成合并。
 
-第three次临时添加的
-第二次临时添加的
-我添加的内容在stash之前。
+23、工作场临时储存起来，然后就可以切换到其它分支：
+git stash
+Git还提供了一个stash功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作
+
+24、工作场恢复：
+git stash apply(要删除git stash drop)
+git stash pop(不需要git stash drop)
+git stash list(显示当前有多少stash
+
+25、应用某个理性：
+git cherry-pick <?>
