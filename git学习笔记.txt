@@ -136,4 +136,5 @@ git stash list(显示当前有多少stash
 25、应用某个理性：
 git cherry-pick <?>
 
-临时添加的work over
+26、删除一个没有经过合并的分支：
+git branch -D new_branch
