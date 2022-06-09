@@ -138,3 +138,10 @@ git cherry-pick <?>
 
 26、删除一个没有经过合并的分支：
 git branch -D new_branch
+
+27、推送本地分支到远程代码库：
+git push test_origin new_branch
+
+28、删除远程分支：
+git push test_origin --delete new_branch
+
