@@ -151,3 +151,26 @@ git push test_origin --delete new_branch
 29、把分叉的提交历史“整理”成一条直线:
 git rebase
 
+30、创建本地标签、删除本地标签：
+git tag tagname
+git tag -d tagname
+
+创建带有说明的标签，用-a指定标签名，-m指定说明文字：
+git tag -a tagname -m tagInfo
+
+31、向远程推送一个标签或所有标签：
+git push test_origin tagname
+git push test_origin --tags
+
+32、删除远程标签：
+git push test_origin :refs/tags/tagname(注意：冒号前有一个空格)
+
+33、显示标签或某个标签的详情：
+git tag
+git show tagname
+
+利用详情中的编号可以恢复到标签对应的版本。
+
+
+
+
