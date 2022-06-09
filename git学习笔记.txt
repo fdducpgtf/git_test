@@ -26,11 +26,14 @@ git remote -v
 git init
 把当前目录作为本地代码仓库，并进行初始化。
 
-4、连接远程代码仓库：
+4、连接远程代码仓库，删除与远程代码仓库的连接：
 git remote add <自定义远程代码仓库的名称> git@github:com <远程代码仓库地址>
 例如：
 git remote add test_origin git@github.com:fdducpgtf/git_test
 其中，“test_origin”是自定义的名称，以后远程连接时就使用这个名称了。“fdducpgtf/git_test”为自己的github帐号下的远程git_test代码仓库。
+
+git remote rm test_origin 删除与远程代码仓库的连接
+
 
 5、提交文件到本地代码仓库的暂存库、确认提交：
 git add git学习笔记.txt (git add .提交当前目录及子目录下所有文件)
