@@ -23,7 +23,8 @@ youremail@example.com表示注册的邮箱。
 ssh -T git@github.com
 Hi fdducpgtf! You've successfully authenticated, but GitHub does not provide shell access.
 
-显示当前已经连接过的远程代码仓库：
+显示当前所有已经配置过的远程代码仓库：
+git remote 
 git remote -v
 
 3、构建本地代码仓库：
@@ -141,7 +142,7 @@ git stash apply(要删除git stash drop)
 git stash pop(不需要git stash drop)
 git stash list(显示当前有多少stash
 
-25、应用某个理性：
+25、应用某个更改：
 git cherry-pick <?>
 
 26、删除一个没有经过合并的分支：
@@ -152,6 +153,9 @@ git push test_origin new_branch
 
 28、删除远程分支：
 git push test_origin --delete new_branch
+
+查看远程分支：
+git branch -r
 
 29、把分叉的提交历史“整理”成一条直线:
 git rebase
