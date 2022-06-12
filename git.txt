@@ -1,0 +1,143 @@
+git学习笔记
+一、文件及文件夹基本操作：
+1、创建文件夹：
+mkdir dirname
+2、删除文件夹：
+rm dirname -r
+rmdir dirname
+3、创建文件：
+touch filename
+echo string>filename
+4、添加内容于文件尾部：
+echo string>>filename
+5、删除文件：
+rm filename
+6、显示文件内容或倒序显示文件内容或显示行号及内容：
+cat filename
+tac filename
+nl filename
+7、显示文件夹内的文件及子文件夹：
+ls (-a或-l)
+8、显示文件前几行或后几行的内容：
+head -n 行数 filename
+tail -n 行数 filename
+9、一页一页显示文件内容：
+less filename
+10、复制文件或文件夹：
+cp oldfilename newfilename
+cp olddir newdirname
+11、重新命名文件或文件夹：
+mv oldfilename(olddirname) newfilename(newdirname)
+12、切换文件夹：
+cd 相对路径或绝对路径
+13、显示当前目录（路径）：
+pwd
+14、查看文件格式：
+file filename
+15、打包或解压缩：
+tar 选项 文件名
+16、查找文件：
+find [查找路径] 寻找条件 操作
+17、编辑文件：
+vim filename
+
+二、git本地环境及与远程通讯环境的创建
+1、创建本地代码仓库：
+git init
+2、创建本地与远程通讯的ssh密码：
+ssh-keygen -t rsa -C "419513499@qq.com"
+如果一切顺利的话，可以在用户主目录里找到.ssh目录，
+里面有id_rsa和id_rsa.pub两个文件，
+这两个就是SSH Key的秘钥对，id_rsa是私钥，不能泄露
+出去，id_rsa.pub是公钥，可以放心地告诉任何人。
+第2步：登陆GitHub，打开“Account settings”，“SSH Keys”
+页面：然后，点“Add SSH Key”，填上任意Title，在Key文本
+框里粘贴id_rsa.pub文件的内容。
+如果成功设置，检验方法是：
+ssh -T git@gitee.com(git@github.com)
+3、创建本地代码仓库与远程代码仓库的连接：
+git remote add <别称> git@gitee.com:fdducpgtf/gitee_test
+git remote add <别称> git@github.com:fdducpgtf/git_test
+git remote -v 查看设置的远程代码仓库
+git branch -r查看远程分支
+4、推送本地文件到远程：
+git push test_origin master（推送主分支）
+git push test_origin new_branch(推送分支)
+git push -f test_origin master（强行推送）
+git push test_origin --all（推送所有分支到远程仓库）
+5、取回远程仓库的变化，并与本地分支合并：
+git pull test_origin master
+git pull test_origin new_branch
+6、删除与远程代码库连接的设置：
+git remote rm test_origin
+
+三、本地及远程代码仓库的管理：
+1、本地文件、文件夹的修改与更新：
+git add filename(文件)
+git add .（所有文件及文件夹）
+git commit -m "提交注释"
+git status（显示有变更的文件）
+git diff（显示工作区与暂存区的区别）
+git diff --cached filename（显示暂存区与上一次提交的区别）
+git diff HEAD （显示工作区与上一次提交之间的差异）
+2、回退：
+（1）本地文件的回退：
+git checkout -- filename(从暂存库中回退本地文件，本地文件被替换)
+git checkout （从暂存库中回退所有本地文件，本地文件被替换）
+（2）本地暂存区的回退：
+git reset HEAD git.txt（撤销了暂存区的修改，不会修改本地文件）
+（3）从任意版本回退（本地文件会被替换成相应版本时的内容）：
+git reset --hard <版本号>
+如：git reset --hard HEAD （从最新提交的版本回退）
+git reset --hard test_origin/master（用远程代码仓库强行覆盖本地文件）
+git reset --hard <其它任意版本号>
+（4）查看版本信息：
+git log
+git reflog
+3、分支的创建及管理：
+（1）查看分支：
+git branch （查看本地分支）
+git branch -r （查看远程分支）
+git branh -a（所有本地分支和远程分支）
+（2）创建分支、切换分支：
+git branch <branchname>（创建分支）
+git checkout <branchname>（切换分支）
+git checkout -b <branchname>（创建并切换分支）
+git checkout -b <branchname> test_origin/gitee_test（根据远程分支创建本地分支）
+（3）删除本地分支或远程分支：
+git branch -d branch（删除本地分支）
+git branch -D branch（强行删除本地分支，不管是否被合并）
+git push test_origin --delete new_branch（删除远程分支）
+（4）未提交的分支的现场保存及恢复：
+git stash（保存现场）
+git stash list（显示保存的所有现场）
+git stash apply（恢复现场）
+git stash drop（丢弃现场）
+git stash pop（恢复现场并丢弃当前现场）
+（5）本地未push的分叉提交历史整理成直线：
+git rebase
+（6）将指定的提交（commit）应用于其他分支：
+git cherry-pick
+（7）合并分支：
+git merge new_branch（合并新分支）
+git merge --no-ff -m "merged info" new_branch（非快速合并）
+4、标签管理：
+（1）创建标签：
+git tag <tagname>
+git tag -a <tagname> -m "taginfo"（创建指定名称的标签，并指定标签注释）
+（2）删除标签：
+git tag -d <tagname>（删除本地标签）
+git push test_origin :refs/tags/tagname（删除远程标签。注意：冒号前有一个空格）
+（3）显示标签：
+git tag（显示tag）
+git show <tagname>（显示tag详细信息）
+（4）推送tag到远程代码库：
+git push test_origin tagname（推送一个标签到远程）
+git push test_origin --tags（推送所有的标签到远程）
+利用详情中的编号可以恢复到标签对应的版本。
+四、获取压缩文档：
+git archive --format tar.gz --output "./output.tar.gz" master（或其它分支）
+git archive --format tar.gz --output "./output.tar.gz" 5ca16ac0d603603（某个版本号）
+git archive --output "./fdd.tar.gz" --remote=git@gitee.com:fdducpgtf/gitee_test master（从远程获取压缩文档）
+
+
